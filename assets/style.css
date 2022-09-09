@@ -4,6 +4,12 @@ body {
   a {
     color: var(--bs-blue);
   }
-  .header {
+#header {
     background-color: blue;
   }
+#main {
+ display: inline;;
+}
+#citysearch {
+  padding:5px;
+}
