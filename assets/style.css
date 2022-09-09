@@ -4,6 +4,9 @@ body {
   a {
     color: var(--bs-blue);
   }
+.container {
+  padding: 5px;
+}
 #header {
     background-color: blue;
   }
