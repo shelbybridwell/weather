@@ -1,1 +1,1 @@
-// api key 225569ec657be8e17ac296ced3863d8d
+const api = '225569ec657be8e17ac296ced3863d8d';
