@@ -15,7 +15,7 @@ $(document).ready(function(){
     }
     else {
         // Default city
-        city = "London";
+        city = "Nashville,";
     }
     // Get and display current date
     date = moment();
@@ -178,11 +178,11 @@ function pad(n, p, c) {
 }
 
 /*
- * Convert Kelvin to Celsius
+ * Convert Kelvin to Farenhei
  */
 function toCelsius(kelvin) {
-    var deg = kelvin - 273.15;
-    return Math.round(deg);
+    var deg = kelvin - 273.15 ;
+    return (Math.round(deg)) * 1.8 + 32;
 }
 
 /**
