@@ -1,268 +1,284 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
-    <script src="https://use.fontawesome.com/389802374e.js"></script>
-    <title>WeatherApp</title>
-</head>
-
-<body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/img/icon.png" width="30" height="30" alt="">
-                <a class="navbar-brand" href="index.html">WeatherApp</a>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                
-                <form id="meteo-form" class="form-inline my-2 my-lg-0">
-                    <div id="search-loading" class="loading">
-                        <div></div>
-                    </div>
-                    <span id="geolocation" data-balloon="Geolocate me!" data-balloon-pos="down">
-                        <i class="fa fa-crosshairs"></i>
-                    </span>
-                    <input name="meteo-city" class="form-control mr-sm-2" placeholder="City" type="text">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
-    </header>
-    <!-- Content -->
-    <div class="container">
-        <h2 id="meteo-title">
-            <span>
-                Weather in <a href="https://www.google.fr/maps/search/nashville" class="text-muted meteo-city" target="_blank">Nashville</a>
-            </span>
-        </h2>
-        <section class="section-meteo row">
-            <div id="meteo-day-1" class="meteo-day col-sm">
-                <h3><span class="name">Day 1</span> <span class="text-muted date">--/--</span></h3>
-                <div class="meteo-block row meteo-temperature-container">
-                    <div class="meteo-temperature">
-                        <i class="wi wi-night-sleet"></i>
-                        <span class="data">--°F</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col meteo-block meteo-humidity">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-tint" aria-hidden="true"></i>
-                             Humidity
-                        </div>
-                        <div class="meteo-block-data">--%</div>
-                    </div>
-                    <div class="col meteo-block meteo-wind">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-flag" aria-hidden="true"></i>
-                            Wind
-                        </div>
-                        <div class="meteo-block-data">-- km/h</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col meteo-block meteo-sunrise">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-sun-o" aria-hidden="true"></i>
-                            Sunrise
-                        </div>
-                        <div class="meteo-block-data">--:--</div>
-                    </div>
-                    <div class="col meteo-block meteo-sunset">
-                        <div class="meteo-block-title">                      
-                            <i class="fa fa-sun-o" aria-hidden="true"></i>
-                            Sunset
-                        </div>
-                        <div class="meteo-block-data">--:--</div>
-                    </div>
-                </div>
-            </div>
-            <div id="meteo-day-2" class="meteo-day col-sm">
-                <h3><span class="name">Day 2</span> <span class="text-muted date">--/--</span></h3>
-                <div class="meteo-block row meteo-temperature-container">
-                    <div class="meteo-temperature">
-                        <i class="wi wi-night-sleet"></i>
-                        <span class="data">--°F</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col meteo-block meteo-humidity">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-tint" aria-hidden="true"></i>
-                             Humidity
-                        </div>
-                        <div class="meteo-block-data">--%</div>
-                    </div>
-                    <div class="col meteo-block meteo-wind">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-flag" aria-hidden="true"></i>
-                            Wind
-                        </div>
-                        <div class="meteo-block-data">-- km/h</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col meteo-block meteo-sunrise">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-sun-o" aria-hidden="true"></i>
-                            Sunrise
-                        </div>
-                        <div class="meteo-block-data">--:--</div>
-                    </div>
-                    <div class="col meteo-block meteo-sunset">
-                        <div class="meteo-block-title">                      
-                            <i class="fa fa-sun-o" aria-hidden="true"></i>
-                            Sunset
-                        </div>
-                        <div class="meteo-block-data">--:--</div>
-                    </div>
-                </div>
-            </div>
-            <div id="meteo-day-3" class="meteo-day col-sm">
-                <h3><span class="name">Day 3</span> <span class="text-muted date">--/--</span></h3>
-                <div class="meteo-block row meteo-temperature-container">
-                    <div class="meteo-temperature">
-                        <i class="wi wi-night-sleet"></i>
-                        <span class="data">--°F</span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col meteo-block meteo-humidity">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-tint" aria-hidden="true"></i>
-                             Humidity
-                        </div>
-                        <div class="meteo-block-data">--%</div>
-                    </div>
-                    <div class="col meteo-block meteo-wind">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-flag" aria-hidden="true"></i>
-                            Wind
-                        </div>
-                        <div class="meteo-block-data">-- km/h</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col meteo-block meteo-sunrise">
-                        <div class="meteo-block-title">
-                            <i class="fa fa-sun-o" aria-hidden="true"></i>
-                            Sunrise
-                        </div>
-                        <div class="meteo-block-data">--:--</div>
-                    </div>
-                    <div class="col meteo-block meteo-sunset">
-                        <div class="meteo-block-title">                      
-                            <i class="fa fa-sun-o" aria-hidden="true"></i>
-                            Sunset
-                        </div>
-                        <div class="meteo-block-data">--:--</div>
-                    </div>
-                </div>
-            </div>
-            <div id="meteo-day-3" class="meteo-day col-sm">
-              <h3><span class="name">Day 4</span> <span class="text-muted date">--/--</span></h3>
-              <div class="meteo-block row meteo-temperature-container">
-                  <div class="meteo-temperature">
-                      <i class="wi wi-night-sleet"></i>
-                      <span class="data">--°F</span>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col meteo-block meteo-humidity">
-                      <div class="meteo-block-title">
-                          <i class="fa fa-tint" aria-hidden="true"></i>
-                           Humidity
-                      </div>
-                      <div class="meteo-block-data">--%</div>
-                  </div>
-                  <div class="col meteo-block meteo-wind">
-                      <div class="meteo-block-title">
-                          <i class="fa fa-flag" aria-hidden="true"></i>
-                          Wind
-                      </div>
-                      <div class="meteo-block-data">-- km/h</div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col meteo-block meteo-sunrise">
-                      <div class="meteo-block-title">
-                          <i class="fa fa-sun-o" aria-hidden="true"></i>
-                          Sunrise
-                      </div>
-                      <div class="meteo-block-data">--:--</div>
-                  </div>
-                  <div class="col meteo-block meteo-sunset">
-                      <div class="meteo-block-title">                      
-                          <i class="fa fa-sun-o" aria-hidden="true"></i>
-                          Sunset
-                      </div>
-                      <div class="meteo-block-data">--:--</div>
-                  </div>
-              </div>
-          </div>
-          <div id="meteo-day-3" class="meteo-day col-sm">
-            <h3><span class="name">Day 5</span> <span class="text-muted date">--/--</span></h3>
-            <div class="meteo-block row meteo-temperature-container">
-                <div class="meteo-temperature">
-                    <i class="wi wi-night-sleet"></i>
-                    <span class="data">--°F</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col meteo-block meteo-humidity">
-                    <div class="meteo-block-title">
-                        <i class="fa fa-tint" aria-hidden="true"></i>
-                         Humidity
-                    </div>
-                    <div class="meteo-block-data">--%</div>
-                </div>
-                <div class="col meteo-block meteo-wind">
-                    <div class="meteo-block-title">
-                        <i class="fa fa-flag" aria-hidden="true"></i>
-                        Wind
-                    </div>
-                    <div class="meteo-block-data">-- km/h</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col meteo-block meteo-sunrise">
-                    <div class="meteo-block-title">
-                        <i class="fa fa-sun-o" aria-hidden="true"></i>
-                        Sunrise
-                    </div>
-                    <div class="meteo-block-data">--:--</div>
-                </div>
-                <div class="col meteo-block meteo-sunset">
-                    <div class="meteo-block-title">                      
-                        <i class="fa fa-sun-o" aria-hidden="true"></i>
-                        Sunset
-                    </div>
-                    <div class="meteo-block-data">--:--</div>
-                </div>
-            </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>weather dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="style" href="/assets/style.css">
+  </head>
+  <body>
+    <div class="container text-center" id="header"><h1>Weather Dashboard</h1></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="/assets/script.js"></script>
+    <div class="container text-right" id="main">
+  <div class="row" class="flow">
+    <div class="col-sm-4" class="citysearch">
+      <form id="meteo-form" class="form-inline my-2 my-lg-0">
+        <div id="search-loading" class="loading">
+            <div></div>
         </div>
-        </section>
-    </div>
-    <!-- Footer -->
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.8.0/suncalc.min.js"></script>
-    <script src="assets/js/utility.js"></script>
-    <script src="./assets/script.js"></script>
-</body>
+        <span id="geolocation" data-balloon="Geolocate me!" data-balloon-pos="down">
+            <i class="fa fa-crosshairs"></i>
+        </span>
+        <input name="meteo-city" class="form-control mr-sm-2" placeholder="City" type="text">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
 
+    </div>
+    <div class="col-sm-8" id="currentcity">
+      <h3><span class="name">Curent City</span> <span class="text-muted date">--/--</span></h3>
+      <div class="meteo-block row meteo-temperature-container">
+          <div class="meteo-temperature">
+              <i class="wi wi-night-sleet"></i>
+              <span class="data">--°F</span>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col meteo-block meteo-humidity">
+              <div class="meteo-block-title">
+                  <i class="fa fa-tint" aria-hidden="true"></i>
+                   Humidity
+              </div>
+              <div class="meteo-block-data">--%</div>
+          </div>
+          <div class="col meteo-block meteo-wind">
+              <div class="meteo-block-title">
+                  <i class="fa fa-flag" aria-hidden="true"></i>
+                  Wind
+              </div>
+              <div class="meteo-block-data">-- km/h</div>
+          </div>
+      </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-sm-4">
+        <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="austin">
+        Austin
+    </button>
+    <div class="w-100"></div>
+    <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="chicago">
+        Chicago
+    </button>
+    <div class="w-100"></div>
+    <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="newyork">
+        New York
+    </button>
+    <div class="w-100"></div>
+    <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; id="orlando">
+        Orlando
+    </button>
+    <div class="w-100"></div>
+    <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="sanfrancisco">
+        San Fran Cisco
+    </button>
+    <div class="w-100"></div>
+    <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="seattle">
+        Seatle
+    </button>
+    <div class="w-100"></div>
+    <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="denver">
+        Denver
+    </button>
+    <div class="w-100"></div>
+    <button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" id="atlanta">
+        Atlanta
+    </button>
+    </div>
+    <div class="col-sm-8"><h4>5 Day Forecast:</h4>
+        <div class="w-100"></div>
+        <div class="container text-center">
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                      <div id="meteo-day-1" class="meteo-day col-sm">
+                        <h3><span class="name">Day 1</span> <span class="text-muted date">--/--</span></h3>
+                        <div class="meteo-block row meteo-temperature-container">
+                            <div class="meteo-temperature">
+                                <i class="wi wi-night-sleet"></i>
+                                <span class="data">--°F</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col meteo-block meteo-humidity">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-tint" aria-hidden="true"></i>
+                                     Humidity
+                                </div>
+                                <div class="meteo-block-data">--%</div>
+                            </div>
+                            <div class="col meteo-block meteo-wind">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-flag" aria-hidden="true"></i>
+                                    Wind
+                                </div>
+                                <div class="meteo-block-data">-- km/h</div>
+                            </div>
+                        </div>
+        
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                      <div id="meteo-day-2" class="meteo-day col-sm">
+                        <h3><span class="name">Day 2</span> <span class="text-muted date">--/--</span></h3>
+                        <div class="meteo-block row meteo-temperature-container">
+                            <div class="meteo-temperature">
+                                <i class="wi wi-night-sleet"></i>
+                                <span class="data">--°F</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col meteo-block meteo-humidity">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-tint" aria-hidden="true"></i>
+                                     Humidity
+                                </div>
+                                <div class="meteo-block-data">--%</div>
+                            </div>
+                            <div class="col meteo-block meteo-wind">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-flag" aria-hidden="true"></i>
+                                    Wind
+                                </div>
+                                <div class="meteo-block-data">-- km/h</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col meteo-block meteo-sunrise">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-sun-o" aria-hidden="true"></i>
+                                    Sunrise
+                                </div>
+                                <div class="meteo-block-data">--:--</div>
+                            </div>
+                            <div class="col meteo-block meteo-sunset">
+                                <div class="meteo-block-title">                      
+                                    <i class="fa fa-sun-o" aria-hidden="true"></i>
+                                    Sunset
+                                </div>
+                                <div class="meteo-block-data">--:--</div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                      <<div id="meteo-day-3" class="meteo-day col-sm">
+                        <h3><span class="name">Day 3</span> <span class="text-muted date">--/--</span></h3>
+                        <div class="meteo-block row meteo-temperature-container">
+                            <div class="meteo-temperature">
+                                <i class="wi wi-night-sleet"></i>
+                                <span class="data">--°F</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col meteo-block meteo-humidity">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-tint" aria-hidden="true"></i>
+                                     Humidity
+                                </div>
+                                <div class="meteo-block-data">--%</div>
+                            </div>
+                            <div class="col meteo-block meteo-wind">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-flag" aria-hidden="true"></i>
+                                    Wind
+                                </div>
+                                <div class="meteo-block-data">-- km/h</div>
+                            </div>
+                        </div>
+        
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                      <div id="meteo-day-4" class="meteo-day col-sm">
+                        <h3><span class="name">Day 4</span> <span class="text-muted date">--/--</span></h3>
+                        <div class="meteo-block row meteo-temperature-container">
+                            <div class="meteo-temperature">
+                                <i class="wi wi-night-sleet"></i>
+                                <span class="data">--°F</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col meteo-block meteo-humidity">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-tint" aria-hidden="true"></i>
+                                     Humidity
+                                </div>
+                                <div class="meteo-block-data">--%</div>
+                            </div>
+                            <div class="col meteo-block meteo-wind">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-flag" aria-hidden="true"></i>
+                                    Wind
+                                </div>
+                                <div class="meteo-block-data">-- km/h</div>
+                            </div>
+                        </div>
+        
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                      <div id="meteo-day-5" class="meteo-day col-sm">
+                        <h3><span class="name">Day 5</span> <span class="text-muted date">--/--</span></h3>
+                        <div class="meteo-block row meteo-temperature-container">
+                            <div class="meteo-temperature">
+                                <i class="wi wi-night-sleet"></i>
+                                <span class="data">--°F</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col meteo-block meteo-humidity">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-tint" aria-hidden="true"></i>
+                                     Humidity
+                                </div>
+                                <div class="meteo-block-data">--%</div>
+                            </div>
+                            <div class="col meteo-block meteo-wind">
+                                <div class="meteo-block-title">
+                                    <i class="fa fa-flag" aria-hidden="true"></i>
+                                    Wind
+                                </div>
+                                <div class="meteo-block-data">-- km/h</div>
+                            </div>
+                        </div>
+        
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+       
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/suncalc/1.8.0/suncalc.min.js"></script>
+<script src="assets/js/utility.js"></script>
+<script src="./assets/script.js"></script>
+</body>
 </html>
