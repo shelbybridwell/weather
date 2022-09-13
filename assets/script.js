@@ -73,7 +73,7 @@ $("#geolocation").click(function (event) {
         // Get latitude and longitude
         var lat = position.coords.latitude
         var lon = position.coords.longitude
-        // Get and update meteo
+        // Get and update weather
         getWeatherByCoordinates(lat, lon, function (data, error) {
             if (error == null) {
                 displayWeather(data);
@@ -82,7 +82,7 @@ $("#geolocation").click(function (event) {
                 weatherTitle = $('#weather-title span');
                 weatherTitle.html('Can\'t  get weather for your position');
             }
-            // Stop loader
+           
             setTimeout(function () {
                 loading.attr('class', 'loading')
             }, 500);
