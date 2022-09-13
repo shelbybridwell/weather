@@ -21,7 +21,7 @@ $(document).ready(function(){
     date = moment();
     for (var i = 0; i < 6; i++){
         // Display date
-        day = $("#meteo-day-" + (i+1));
+        day = $("#weather-day-" + (i+1));
         day.find(".name").text(date.format("dddd"));
         day.find(".date").text(date.format("MM/DD"));
         // Go to the next day
@@ -31,13 +31,13 @@ $(document).ready(function(){
     loading = $('#search-loading');
     loading.attr('class', 'loading inload');
     // Get and update meteo
-    getMeteoByCity(city, function (data, error) {
+    getWeatherByCity(city, function (data, error) {
         if (error == null) {
-            displayMeteo(data);
+            displayWeather(data);
         }
         else {
-            meteoTitle = $('#meteo-title span');
-            meteoTitle.html('City <span class="text-muted">' + city + '</span> not found');
+            weatherTitle = $('#weather-title span');
+            weatherTitle.html('City <span class="text-muted">' + city + '</span> not found');
         }
         // Stop loader
         setTimeout(function () {
@@ -48,19 +48,19 @@ $(document).ready(function(){
 
 
 // -- Core --
-$("#meteo-form").submit(function (event) {
+$("#weather-form").submit(function (event) {
     // Loading...
     loading = $('#search-loading');
     loading.attr('class', 'loading inload');
-    // Get and update meteo
+    // Get and update weather
     var city = event.currentTarget[0].value;
-    getMeteoByCity(city, function (data, error){
+    getWeatherByCity(city, function (data, error){
         if (error == null) {
-            displayMeteo(data);
+            displayWeather(data);
         }
         else {
-            meteoTitle = $('#meteo-title span');
-            meteoTitle.html('City <span class="text-muted">' + city + '</span> not found');
+            weatherTitle = $('#weather-title span');
+            weatherTitle.html('City <span class="text-muted">' + city + '</span> not found');
         }
         // Stop loader
         setTimeout(function () {
@@ -80,13 +80,13 @@ $("#geolocation").click(function (event) {
         var lat = position.coords.latitude
         var lon = position.coords.longitude
         // Get and update meteo
-        getMeteoByCoordinates(lat, lon, function (data, error) {
+        getWeatherByCoordinates(lat, lon, function (data, error) {
             if (error == null) {
-                displayMeteo(data);
+                displayWeather(data);
             }
             else {
-                meteoTitle = $('#meteo-title span');
-                meteoTitle.html('Can\'t  get meteo for your position');
+                weatherTitle = $('#weather-title span');
+                weatherTitle.html('Can\'t  get weather for your position');
             }
             // Stop loader
             setTimeout(function () {
@@ -96,7 +96,7 @@ $("#geolocation").click(function (event) {
     });
 });
 
-function getMeteoByCity(city, callback){
+function getWeatherByCity(city, callback){
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=" + API_KEY,
         success: function(data){
@@ -108,7 +108,7 @@ function getMeteoByCity(city, callback){
     });
 }
 
-function getMeteoByCoordinates(lat, lon, callback){
+function getWeatherByCoordinates(lat, lon, callback){
     $.ajax({
         url: "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&APPID=" + API_KEY,
         success: function(data){
@@ -122,29 +122,27 @@ function getMeteoByCoordinates(lat, lon, callback){
 
 
 
-function displayMeteo(data){
+function displayWeather(data){
    
     var tempAvg = 0;
     for (var i = 0; i < 6; i++){
-        // Get meteo
-        meteo = data.list[i*8];
+        // Get weather
+        weather = data.list[i*8];
         // Get DOM elements
-        day = $("#meteo-day-" + (i + 1));
-        icon = day.find(".meteo-temperature .wi");
-        temperature = day.find(".meteo-temperature .data");
-        humidity = day.find(".meteo-humidity .meteo-block-data");
-        wind = day.find(".meteo-wind .meteo-block-data");
-        sunrise = day.find(".meteo-sunrise .meteo-block-data");
-        sunset = day.find(".meteo-sunset .meteo-block-data");
-       // uvindex = day.find(".meteo-uv .meteo-block-data")
+        day = $("#weather-day-" + (i + 1));
+        icon = day.find(".weather-temperature .wi");
+        temperature = day.find(".weather-temperature .data");
+        humidity = day.find(".weather-humidity .weather-block-data");
+        wind = day.find(".weather-wind .weather-block-data");
+        //uvindex = day.find(".weather-uv .weather-block-data")
         // Update DOM
-        code = meteo.weather[0].id;
+        code = weather.weather[0].id;
         icon.attr('class', 'wi wi-owm-' + code);
-        temperature.text(toFarenheit(meteo.main.temp) + "°F");
-        humidity.text(meteo.main.humidity + "%");
-        wind.text(meteo.wind.speed + " mph");
-       // uv.text(meto.main.uv + " ");
-        tempAvg += meteo.main.temp;
+        temperature.text(toFarenheit(weather.main.temp) + "°F");
+        humidity.text(weather.main.humidity + "%");
+        wind.text(weather.wind.speed + " mph");
+        //uv.text(weather.main.uv + " ");
+        tempAvg += weather.main.temp;
     }
    ;
 }
@@ -155,7 +153,7 @@ function pad(n, p, c) {
 }
 
 /*
- * Convert Kelvin to Farenhei
+ * Convert Kelvin to Farenheit
  */
 function toFarenheit(kelvin) {
     var deg = kelvin - 273.15 ;

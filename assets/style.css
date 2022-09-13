@@ -42,7 +42,7 @@ h2 a:hover{
 }
 
 /* Weather */
-#meteo-title{
+#weather-title{
   text-align: center;
   margin-top: 25px;
   color: #fff;
@@ -51,11 +51,11 @@ h2 a:hover{
   color: #fff587 !important;
 }
 
-.section-meteo{
+.section-weather{
   margin-top: 25px;
 }
 
-.meteo-day{
+.weather-day{
   background-color: rgba(255,255,255,0.2);
   margin: 5px 10px;
   padding: 10px 25px;
@@ -66,44 +66,44 @@ h2 a:hover{
   transition: 0.3s;
   box-shadow: 0px 5px 5px rgba(0,0,0,0.05);
 }
-.meteo-day:hover{
+.weather-day:hover{
   background-color: rgba(255,255,255,0.25);
   box-shadow: 0px 5px 5px rgba(0,0,0,0.15);
 }
-.meteo-day h3{
+.weather-day h3{
   text-align: center;
   margin-top: 20px;
 }
 
-.meteo-block{
+.weather-block{
   margin: 5px 5px;
   text-align: center;
   height: 73px;
 }
 
-.meteo-block-title{
+.weather-block-title{
   font-size: 16px !important;
   color: #444;
 }
 
-.meteo-block-data{
+.weather-block-data{
   margin-top: 8px;
   font-size: 18px;
 }
 
-.meteo-temperature-container{
+.weather-temperature-container{
   padding-top: 5px;
   height: 100px;
 }
-.meteo-temperature {
+.weather-temperature {
   margin: 0 auto;
   font-size: 55px;
 }
 
-.meteo-temperature .wi{
+.weather-temperature .wi{
   color: rgba(54, 50, 50, 0.6);
 }
-.meteo-block-data{
+.weather-block-data{
   /* background-color: rgba(54, 50, 50, 0.8); */
   color: #fff;
   font-weight: 700;
@@ -173,17 +173,17 @@ h2 a:hover{
 
 /* Responsive */
 @media screen and (max-width: 1100px){
-  .meteo-day:first-child{
+  .weather-day:first-child{
       flex: 100%;
   }
-  .meteo-day{
+  .weather-day{
       flex: 45%;
       margin: 5px;
   }
 }
 
 @media screen and (max-width: 800px){
-  .meteo-day{
+  .weather-day{
       flex: 100%;
   }
 }
