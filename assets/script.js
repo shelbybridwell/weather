@@ -120,13 +120,13 @@ function displayWeather(data){
         temperature = day.find(".weather-temperature .data");
         humidity = day.find(".weather-humidity .weather-block-data");
         wind = day.find(".weather-wind .weather-block-data");
-        //uvindex = day.find(".weather-uv .weather-block-data")
+    
         // Update DOM
         code = weather.weather[0].id;
         temperature.text(toFarenheit(weather.main.temp) + "°F");
         humidity.text(weather.main.humidity + "%");
         wind.text(weather.wind.speed + " mph");
-        //uv.text(weather.main.uv + " ");
+       
         tempAvg += weather.main.temp;
     }
    ;
