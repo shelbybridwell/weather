@@ -151,4 +151,3 @@ function saveCity(newCity) {
     console.log (saveCity);
   }
   
- 
