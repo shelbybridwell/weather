@@ -126,11 +126,7 @@ function displayWeather(data){
     }
    ;
 }
-function pad(n, p, c) {
-    var pad_char = typeof c !== 'undefined' ? c : '0';
-    var pad = new Array(1 + p).join(pad_char);
-    return (pad + n).slice(-pad.length);
-}
+
 
 /*
  * Convert Kelvin to Farenheit
