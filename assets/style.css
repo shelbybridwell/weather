@@ -41,20 +41,6 @@ h2 a:hover{
   padding: 0 10px;
 }
 
-#geolocation {
-  margin-right: 11px;
-}
-#geolocation i{
-  position: relative;
-  top: 1px;
-  cursor: pointer;
-  font-size: 25px;
-  color: #aaa;
-}
-#geolocation:hover i{
-  color: #fff;
-}
-
 /* Weather */
 #meteo-title{
   text-align: center;
@@ -123,29 +109,7 @@ h2 a:hover{
   font-weight: 700;
 }
 
-/* Footer */
-footer{
-  background-color: #3E3F3A;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 10px 0 0 0;
-}
-footer a{
-  text-decoration: none;
-  color: #FFF;
-}
-footer a:hover{
-  color: #D0F2F6;
-}
-footer ul{
-  margin-top: 10px;
-  text-align: center;
-}
-footer li{
-  display: inline-block;
-  margin: 0 10px;
-}
+
 
 /* Loading */
 @keyframes loading {

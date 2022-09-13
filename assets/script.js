@@ -120,22 +120,7 @@ function getMeteoByCoordinates(lat, lon, callback){
     });
 }
 
-function displaySunriseSunset(lat, long){
-    date = moment();
-    for (var i = 0; i < 3; i++) {
-        // Get sunrise and sunset
-        var times = SunCalc.getTimes(date, lat, long);
-        var sunrise = pad(times.sunrise.getHours(), 2) + ':' + pad(times.sunrise.getMinutes(), 2);
-        var sunset = pad(times.sunset.getHours(), 2) + ':' + pad(times.sunset.getMinutes(), 2);
-        // Display sunrise and sunset
-        day = $("#meteo-day-" + (i + 1));
-        day.find('.meteo-sunrise .meteo-block-data').text(sunrise);
-        day.find('.meteo-sunset .meteo-block-data').text(sunset);
-        // Go to the next day
-        date = date.add(1, 'days')
-    }
 
-}
 
 function displayMeteo(data){
     // Update Google Map URL
@@ -161,6 +146,7 @@ function displayMeteo(data){
         temperature.text(toFarenheit(meteo.main.temp) + "°F");
         humidity.text(meteo.main.humidity + "%");
         wind.text(meteo.wind.speed + " mph");
+       // uv.text(meto.main.uv + " ");
         tempMoyenne += meteo.main.temp;
     }
     displaySunriseSunset(data.city.coord.lat, data.city.coord.lon);
