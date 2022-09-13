@@ -42,34 +42,7 @@ body{
   }
 }
 
-.loading {
-  display: none;
-  position: relative;    
-  width: 20px !important;
-  height: 20px !important;
-  -webkit-transform: translate(-50px, -50px) scale(1) translate(50px, 50px);
-  transform: translate(-50px, -50px) scale(1) translate(50px, 50px);
-}
 
-.loading div {
-  position: absolute;
-  -webkit-animation: loading 1s linear infinite;
-  animation: loading 1s linear infinite;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  box-shadow: 0 2px 0 0 #ffffff;
-  -webkit-transform-origin: 10px 11px;
-  transform-origin: 10px 11px;
-}
-
-.inload{
-  display: inline-block !important;
-}
-
-#search-loading{
-  margin-right: 15px;
-}
 
 /* Responsive */
 @media screen and (max-width: 1100px){
