@@ -123,7 +123,7 @@ function displayWeather(data){
         code = weather.weather[0].id;
         temperature.text(toFarenheit(weather.main.temp) + "°F");
         humidity.text(weather.main.humidity + "%");
-        wind.text(weather.wind.speed + " mph");
+        wind.text(convertKmToMiles(weather.wind.speed) + " mph");
        
         tempAvg += weather.main.temp;
     }
@@ -142,3 +142,7 @@ function toFarenheit(kelvin) {
     var deg = kelvin - 273.15 ;
     return (Math.round(deg)) * 1.8 + 32;
 }
+
+function convertKmToMiles(km) {
+    return km * 0.621371;
+  }
