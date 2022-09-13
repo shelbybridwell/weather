@@ -108,20 +108,6 @@ function getWeatherByCity(city, callback){
     });
 }
 
-function getWeatherByCoordinates(lat, lon, callback){
-    $.ajax({
-        url: "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&APPID=" + API_KEY,
-        success: function(data){
-            callback(data, null);
-        },
-        error: function(req, status, error){
-            callback(null, error);
-        }
-    });
-}
-
-
-
 function displayWeather(data){
    
     var tempAvg = 0;
@@ -137,7 +123,6 @@ function displayWeather(data){
         //uvindex = day.find(".weather-uv .weather-block-data")
         // Update DOM
         code = weather.weather[0].id;
-        icon.attr('class', 'wi wi-owm-' + code);
         temperature.text(toFarenheit(weather.main.temp) + "°F");
         humidity.text(weather.main.humidity + "%");
         wind.text(weather.wind.speed + " mph");
@@ -165,6 +150,7 @@ function saveCity(newCity) {
     let data = JSON.parse(localStorage.getItem('saved-cities')) || []
     data.push(newCity)
     localStorage.setItem('saved-cities', JSON.stringify(data))
+    console.log (saveCity);
   }
   
  
