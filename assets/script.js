@@ -154,6 +154,7 @@ function displayMeteo(data){
         wind = day.find(".meteo-wind .meteo-block-data");
         sunrise = day.find(".meteo-sunrise .meteo-block-data");
         sunset = day.find(".meteo-sunset .meteo-block-data");
+        uvindex = day.find(".meteo-uv .meteo-block-data")
         // Update DOM
         code = meteo.weather[0].id;
         icon.attr('class', 'wi wi-owm-' + code);
