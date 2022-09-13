@@ -161,3 +161,10 @@ function toFarenheit(kelvin) {
 }
 
 
+function saveCity(newCity) {
+    let data = JSON.parse(localStorage.getItem('saved-cities')) || []
+    data.push(newCity)
+    localStorage.setItem('saved-cities', JSON.stringify(data))
+  }
+  
+ 
