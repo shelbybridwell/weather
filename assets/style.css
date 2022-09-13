@@ -1,3 +1,4 @@
+
 html{
   position: relative;    
 }
@@ -6,110 +7,9 @@ html, body{
 }
 body{
   /* Default background */
-  background: linear-gradient(#0f7de9,#23f2eb);
+  background: beige;
   color: #fff;
 }
-.container{
-  padding-bottom: 80px;
-}
-
-a:hover{
-  text-decoration: none;
-}
-
-h2 a{
-  transition: 0.1s;
-}
-h2 a:hover{
-  color: #ffe946 !important;
-}
-
-.section-title{
-  margin-top: 50px;
-}
-
-.section-title h1{
-  font-size: 50px;
-}
-
-.section-title h2{
-  font-size: 20px;
-}
-
-.section-description{
-  margin-top: 50px;
-  padding: 0 10px;
-}
-
-/* Weather */
-#weather-title{
-  text-align: center;
-  margin-top: 25px;
-  color: #fff;
-}
-.text-muted{
-  color: #fff587 !important;
-}
-
-.section-weather{
-  margin-top: 25px;
-}
-
-.weather-day{
-  background-color: rgba(255,255,255,0.2);
-  margin: 5px 10px;
-  padding: 10px 25px;
-  min-height: 200px;
-  border-radius: 5px;
-  border: 1px solid #eee;
-  border-bottom: 3px solid #ddd;
-  transition: 0.3s;
-  box-shadow: 0px 5px 5px rgba(0,0,0,0.05);
-}
-.weather-day:hover{
-  background-color: rgba(255,255,255,0.25);
-  box-shadow: 0px 5px 5px rgba(0,0,0,0.15);
-}
-.weather-day h3{
-  text-align: center;
-  margin-top: 20px;
-}
-
-.weather-block{
-  margin: 5px 5px;
-  text-align: center;
-  height: 73px;
-}
-
-.weather-block-title{
-  font-size: 16px !important;
-  color: #444;
-}
-
-.weather-block-data{
-  margin-top: 8px;
-  font-size: 18px;
-}
-
-.weather-temperature-container{
-  padding-top: 5px;
-  height: 100px;
-}
-.weather-temperature {
-  margin: 0 auto;
-  font-size: 55px;
-}
-
-.weather-temperature .wi{
-  color: rgba(54, 50, 50, 0.6);
-}
-.weather-block-data{
-  /* background-color: rgba(54, 50, 50, 0.8); */
-  color: #fff;
-  font-weight: 700;
-}
-
-
 
 /* Loading */
 @keyframes loading {
