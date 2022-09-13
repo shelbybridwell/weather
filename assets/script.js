@@ -28,9 +28,7 @@ $(document).ready(function(){
         date = date.add(1, 'days')
     }
     // Loading...
-    loading = $('#search-loading');
-    loading.attr('class', 'loading inload');
-    // Get and update meteo
+   
     getWeatherByCity(city, function (data, error) {
         if (error == null) {
             displayWeather(data);
