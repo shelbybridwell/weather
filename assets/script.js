@@ -47,9 +47,7 @@ $(document).ready(function(){
 
 // -- Core --
 $("#weather-form").submit(function (event) {
-    // Loading...
-    loading = $('#search-loading');
-    loading.attr('class', 'loading inload');
+    
     // Get and update weather
     var city = event.currentTarget[0].value;
     getWeatherByCity(city, function (data, error){
@@ -107,9 +105,11 @@ function getWeatherByCity(city, callback){
 }
 
 function displayWeather(data){
-   
+    googleMapCity = "https://www.google.com/maps/place/" + data.city.coord.lat + "," + data.city.coord.lon;
+    $('#weather-title span').html('Weather in <a href="' + googleMapCity + '" class="text-muted weather-city" target="_blank">' + data.city.name + ', ' + data.city.country + '</a>');
+    // Update meteo for each day
     var tempAvg = 0;
-    for (var i = 0; i < 6; i++){
+    for (var i = 0; i < 7; i++){
         // Get weather
         weather = data.list[i*8];
         // Get DOM elements
