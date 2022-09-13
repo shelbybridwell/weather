@@ -19,11 +19,11 @@ $(document).ready(function(){
     }
     // Get and display current date
     date = moment();
-    for (var i = 0; i < 3; i++){
+    for (var i = 0; i < 6; i++){
         // Display date
         day = $("#meteo-day-" + (i+1));
         day.find(".name").text(date.format("dddd"));
-        day.find(".date").text(date.format("DD/MM"));
+        day.find(".date").text(date.format("MM/DD"));
         // Go to the next day
         date = date.add(1, 'days')
     }
@@ -139,11 +139,11 @@ function displaySunriseSunset(lat, long){
 
 function displayMeteo(data){
     // Update Google Map URL
-    googleMapCity = "https://www.google.fr/maps/place/" + data.city.coord.lat + "," + data.city.coord.lon;
+    googleMapCity = "https://www.google.com/maps/place/" + data.city.coord.lat + "," + data.city.coord.lon;
     $('#meteo-title span').html('Weather in <a href="' + googleMapCity + '" class="text-muted meteo-city" target="_blank">' + data.city.name + ', ' + data.city.country + '</a>');
     // Update meteo for each day
     var tempMoyenne = 0;
-    for (var i = 0; i < 3; i++){
+    for (var i = 0; i < 6; i++){
         // Get meteo
         meteo = data.list[i*8];
         // Get DOM elements
@@ -157,14 +157,14 @@ function displayMeteo(data){
         // Update DOM
         code = meteo.weather[0].id;
         icon.attr('class', 'wi wi-owm-' + code);
-        temperature.text(toCelsius(meteo.main.temp) + "°F");
+        temperature.text(toFarenheit(meteo.main.temp) + "°F");
         humidity.text(meteo.main.humidity + "%");
-        wind.text(meteo.wind.speed + " km/h");
+        wind.text(meteo.wind.speed + " mph");
         tempMoyenne += meteo.main.temp;
     }
     displaySunriseSunset(data.city.coord.lat, data.city.coord.lon);
     // Get custom gradient according to the temperature
-    tempMoyenne = toCelsius(tempMoyenne / 3);
+    tempMoyenne = toFarenheit(tempMoyenne / 3);
     var hue1 = 30 + 240 * (30 - tempMoyenne) / 60;
     var hue2 = hue1 + 30;
     rgb1 = 'rgb(' + hslToRgb(hue1 / 360, 0.6, 0.5).join(',') + ')';
@@ -180,7 +180,7 @@ function pad(n, p, c) {
 /*
  * Convert Kelvin to Farenhei
  */
-function toCelsius(kelvin) {
+function toFarenheit(kelvin) {
     var deg = kelvin - 273.15 ;
     return (Math.round(deg)) * 1.8 + 32;
 }
@@ -197,7 +197,7 @@ function toCelsius(kelvin) {
  * @param   {number}  l       The lightness
  * @return  {Array}           The RGB representation
  */
-function hslToRgb(h, s, l) {
+ function hslToRgb(h, s, l) {
     var r, g, b;
 
     if (s == 0) {
@@ -206,9 +206,9 @@ function hslToRgb(h, s, l) {
         var hue2rgb = function hue2rgb(p, q, t) {
             if (t < 0) t += 1;
             if (t > 1) t -= 1;
-            if (t < 1 / 6) return p + (q - p) * 6 * t;
+            if (t < 1 / 11) return p + (q - p) * 11 * t;
             if (t < 1 / 2) return q;
-            if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+            if (t < 2 / 5.5) return p + (q - p) * (2 / 3 - t) * 11;
             return p;
         }
 
@@ -221,3 +221,4 @@ function hslToRgb(h, s, l) {
 
     return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
 }
+
