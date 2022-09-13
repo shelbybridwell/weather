@@ -103,8 +103,7 @@ function getWeatherByCity(city, callback){
 }
 
 function displayWeather(data){
-    googleMapCity = "https://www.google.com/maps/place/" + data.city.coord.lat + "," + data.city.coord.lon;
-    $('#weather-title span').html('Weather in <a href="' + googleMapCity + '" class="text-muted weather-city" target="_blank">' + data.city.name + ', ' + data.city.country + '</a>');
+
     // Update weathr for each day
     var tempAvg = 0;
     for (var i = 0; i < 7; i++){
