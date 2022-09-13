@@ -27,7 +27,7 @@ $(document).ready(function(){
         // Go to the next day
         date = date.add(1, 'days')
     }
-    // Loading...
+  
    
     getWeatherByCity(city, function (data, error) {
         if (error == null) {
@@ -37,7 +37,7 @@ $(document).ready(function(){
             weatherTitle = $('#weather-title span');
             weatherTitle.html('City <span class="text-muted">' + city + '</span> not found');
         }
-        // Stop loader
+     
         setTimeout(function () {
             loading.attr('class', 'loading')
         }, 500);
@@ -58,7 +58,7 @@ $("#weather-form").submit(function (event) {
             weatherTitle = $('#weather-title span');
             weatherTitle.html('City <span class="text-muted">' + city + '</span> not found');
         }
-        // Stop loader
+        
         setTimeout(function () {
             loading.attr('class', 'loading')
         }, 500);
